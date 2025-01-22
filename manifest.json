@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Community Utility Extension",
+  "version": "1.0",
+  "description": "Utility extension for community members to access resources and updates.",
+  "icons": {
+    "128": "assets/icon.png"
+  },
+  "action": {
+    "default_popup": "popup/index.html",
+    "default_icon": "assets/icon.png"
+  },
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "permissions": [
+    "notifications",
+    "storage",
+    "alarms"
+  ],
+  "host_permissions": ["*://example.com/*"]
+}
