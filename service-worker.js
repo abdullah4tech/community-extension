@@ -5,15 +5,16 @@ const fetchDataAndNotify = async () => {
     const res = await fetch(`http://localhost:3000/scrape?url=${url}`);
     const data = await res.json();
     const message = data.message || "No new updates at the moment.";
-    const current_bounties = data.currentBounties;
-    const new_bounties = data.newBounties;
 
-    chrome.notifications.create({
-      type: 'basic',
-      iconUrl: 'assets/icon.png',
-      title: 'Christex Community Update',
-      message,
-    });
+    // Notify only if there are new updates
+    if (data.newBounties && data.newBounties.length > 0) {
+      chrome.notifications.create({
+        type: 'basic',
+        iconUrl: 'assets/icon.png',
+        title: 'Christex Community Update',
+        message,
+      });
+    }
   } catch (error) {
     console.error("Error fetching data:", error);
   }
@@ -22,7 +23,7 @@ const fetchDataAndNotify = async () => {
 // Start fetching data periodically
 const startFetching = () => {
   fetchDataAndNotify(); // Fetch immediately on startup
-  setInterval(fetchDataAndNotify, 60000); // Repeat every 2 seconds
+  setInterval(fetchDataAndNotify, 60000); // Repeat every 1 minute
 };
 
 // Listen for the installation or update event
