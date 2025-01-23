@@ -3,14 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Community Extension</title>
+  <title>Christex Community</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Community Dashboard</h1>
-  <button id="notify">Send Notification</button>
-  <button id="resources">Community Resources</button>
-  <div id="output"></div>
+  <div class="container">
+    <header>
+      <img src="../assets/icon.png" alt="Christex Logo" class="logo">
+      <h1>Christex Community</h1>
+    </header>
+    
+    <section class="content">
+      <button id="resources" class="btn-primary">View Community Resources</button>
+      <div id="output" class="resources-output"></div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Christex Foundation</p>
+    </footer>
+  </div>
   <script src="popup.js"></script>
 </body>
 </html>
