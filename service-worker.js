@@ -13,7 +13,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 const fetchDataAndNotify = async () => {
   const url = "https://earn.christex.foundation/";
   try {
-    const res = await fetch(`https://community-extension-backend-production.up.railway.app/scrape?url=${url}`);
+    const res = await fetch(`https://community-extension-backend.vercel.app/scrape?url=${url}`);
     const data = await res.json();
     const message = data.message || "No new updates at the moment.";
 
